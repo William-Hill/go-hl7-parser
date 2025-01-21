@@ -2,9 +2,10 @@ package hl7_test
 
 import (
 	"errors"
-	hl7 "github.com/synkwise/go-hl7-parser"
 	"os"
 	"testing"
+
+	hl7 "github.com/William-Hill/go-hl7-parser"
 )
 
 func TestAcknowledge(t *testing.T) {

@@ -1,4 +1,4 @@
-# Go Level 7 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/synkwise/go-hl7-parser)
+# Go Level 7 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/William-Hill/go-hl7-parser)
 
 ## Overview
 
@@ -16,7 +16,7 @@
 Note: Message building is not currently working for MSH segments. Coming soon...
 
 ## Installation
-	go get github.com/synkwise/go-hl7-parser
+	go get github.com/William-Hill/go-hl7-parser
 
 ## Usage
 

@@ -1,9 +1,10 @@
 package hl7_test
 
 import (
-	hl7 "github.com/synkwise/go-hl7-parser"
 	"os"
 	"testing"
+
+	hl7 "github.com/William-Hill/go-hl7-parser"
 )
 
 func TestValid(t *testing.T) {

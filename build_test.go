@@ -1,8 +1,9 @@
 package hl7_test
 
 import (
-	hl7 "github.com/synkwise/go-hl7-parser"
 	"testing"
+
+	hl7 "github.com/William-Hill/go-hl7-parser"
 )
 
 func TestBuildMessage(t *testing.T) {

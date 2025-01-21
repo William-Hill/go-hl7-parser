@@ -1,3 +1,3 @@
-module github.com/synkwise/go-hl7-parser
+module github.com/William-Hill/go-hl7-parser
 
 go 1.17
