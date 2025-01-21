@@ -85,8 +85,8 @@ func TestBuildMessage(t *testing.T) {
 }
 
 type aMsg struct {
-	FirstName string `hl7:"PID.5.1"`
-	LastName  string `hl7:"PID.5.0"`
+	FirstName string `hl7:"PID.5.2"`
+	LastName  string `hl7:"PID.5.1"`
 }
 
 func TestMessageBuilding(t *testing.T) {

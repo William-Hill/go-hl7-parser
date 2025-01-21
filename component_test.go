@@ -18,7 +18,7 @@ func TestCompParse(t *testing.T) {
 
 func TestCompSet(t *testing.T) {
 	seps := hl7.NewDelimeters()
-	loc := "ZZZ.1.0.5"
+	loc := "ZZZ.1.1.6"
 	l := hl7.NewLocation(loc)
 	cmp := &hl7.Component{}
 	err := cmp.Set(l, "TEST", seps)

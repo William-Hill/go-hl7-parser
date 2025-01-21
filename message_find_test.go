@@ -21,16 +21,16 @@ func TestFind(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if val != "CPT-4" {
-		t.Errorf("Expected CPT-4 got %s\n", val)
+	if val != "LIPID PROFILE" {
+		t.Errorf("Expected LIPID PROFILE got %s\n", val)
 	}
 
 	val, err = msg.Find("OBX.3.2")
 	if err != nil {
 		t.Error(err)
 	}
-	if val != "LOINC" {
-		t.Errorf("Expected LOINC got %s\n", val)
+	if val != "LDL (CALCULATED)" {
+		t.Errorf("Expected LDL (CALCULATED) got %s\n", val)
 	}
 }
 
@@ -79,7 +79,7 @@ func TestRepFields(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	vals, err := msg.FindAll("PID.11.0")
+	vals, err := msg.FindAll("PID.11.1")
 	if err != nil {
 		t.Error(err)
 	}

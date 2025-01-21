@@ -56,12 +56,14 @@ func (f *Field) encode(seps *Delimeters) []byte {
 	return bytes.Join(buf, []byte(string(seps.Component)))
 }
 
-// Component returns the component i
+// Component returns the component i (1-based index)
 func (f *Field) Component(i int) (*Component, error) {
-	if i >= len(f.Components) {
+	// Convert 1-based index to 0-based for internal array access
+	idx := i - 1
+	if idx < 0 || idx >= len(f.Components) {
 		return nil, fmt.Errorf("Component out of range")
 	}
-	return &f.Components[i], nil
+	return &f.Components[idx], nil
 }
 
 // Get returns the value specified by the Location
@@ -78,10 +80,14 @@ func (f *Field) Get(l *Location) (string, error) {
 
 // Set will insert a value into a message at Location
 func (f *Field) Set(l *Location, val string, seps *Delimeters) error {
+	// Convert 1-based index to 0-based
 	loc := l.Comp
 	if loc < 0 {
 		loc = 0
+	} else {
+		loc-- // Convert to 0-based
 	}
+
 	if x := loc - len(f.Components) + 1; x > 0 {
 		f.Components = append(f.Components, make([]Component, x)...)
 	}
