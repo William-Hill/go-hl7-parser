@@ -1,8 +1,9 @@
 package hl7_test
 
 import (
-	hl7 "github.com/synkwise/go-hl7-parser"
 	"testing"
+
+	hl7 "github.com/synkwise/go-hl7-parser"
 )
 
 func TestFieldParse(t *testing.T) {
@@ -18,7 +19,7 @@ func TestFieldParse(t *testing.T) {
 func TestFieldSet(t *testing.T) {
 	seps := hl7.NewDelimeters()
 	fld := &hl7.Field{}
-	loc := "ZZZ.1.10"
+	loc := "ZZZ.1.11"
 	l := hl7.NewLocation(loc)
 	err := fld.Set(l, "TEST", seps)
 	if err != nil {
