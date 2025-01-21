@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//Component is an HL7 component
+// Component is an HL7 component
 type Component struct {
 	SubComponents []SubComponent
 	Value         []byte
@@ -44,12 +44,14 @@ func (c *Component) Parse(seps *Delimeters) error {
 	}
 }
 
-// SubComponent returns the subcomponent i
+// SubComponent returns the subcomponent i (1-based index)
 func (c *Component) SubComponent(i int) (*SubComponent, error) {
-	if i >= len(c.SubComponents) {
+	// Convert 1-based index to 0-based for internal array access
+	idx := i - 1
+	if idx < 0 || idx >= len(c.SubComponents) {
 		return nil, fmt.Errorf("SubComponent out of range")
 	}
-	return &c.SubComponents[i], nil
+	return &c.SubComponents[idx], nil
 }
 
 func (c *Component) encode(seps *Delimeters) []byte {
@@ -74,10 +76,14 @@ func (c *Component) Get(l *Location) (string, error) {
 
 // Set will insert a value into a message at Location
 func (c *Component) Set(l *Location, val string, seps *Delimeters) error {
+	// Convert 1-based index to 0-based
 	subloc := l.SubComp
 	if subloc < 0 {
 		subloc = 0
+	} else {
+		subloc-- // Convert to 0-based
 	}
+
 	if x := subloc - len(c.SubComponents) + 1; x > 0 {
 		c.SubComponents = append(c.SubComponents, make([]SubComponent, x)...)
 	}
